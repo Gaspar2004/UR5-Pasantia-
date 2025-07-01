@@ -1,0 +1,3 @@
+minRadius y maxRadius: ajustá según el tamaño de tus fichas "O".
+param2: es el umbral para detectar los círculos. Bajalo para detectar más fácilmente, subilo para evitar falsos positivos.
+Si las fichas tienen poco contraste, mejorá la iluminación o cambiá el color de fondo/tablero.
