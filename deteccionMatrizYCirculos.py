@@ -23,7 +23,7 @@ def detectar_circulo(celda):
 
     circles = cv2.HoughCircles(blur, cv2.HOUGH_GRADIENT, dp=1.2, minDist=20,
                                param1=50, param2=30, minRadius=40, maxRadius=55)
-
+#cuanto mas bajo sea param2, mas permisivo será con tema reconocimiento de circulos
     if circles is not None:
         circles = np.uint16(np.around(circles))
         for x, y, r in circles[0, :1]:  # solo marcamos el primero
