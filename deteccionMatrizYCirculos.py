@@ -35,6 +35,9 @@ def detectar_circulo(celda):
 
 # Captura desde webcam
 cap = cv2.VideoCapture(0)
+# Estado interno del robot
+tablero_robot = [["" for _ in range(3)] for _ in range(3)]
+cruces_colocadas = 0
 
 while True:
     ret, frame = cap.read()
@@ -52,11 +55,21 @@ while True:
 
     # Procesar celdas
     celdas = dividir_en_celdas(frame)
+for (i, j), celda in celdas:
+    if detectar_circulo(celda):
+        tablero[i][j] = "O"
+        cv2.putText(frame_copy, f"O", (j * w // 3 + 30, i * h // 3 + 60),
+                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+    elif tablero_robot[i][j] == "X":
+        tablero[i][j] = "X"
+        # Dibujar cruz visual
+        x0 = j * w // 3 + 20
+        y0 = i * h // 3 + 20
+        x1 = (j + 1) * w // 3 - 20
+        y1 = (i + 1) * h // 3 - 20
+        cv2.line(frame_copy, (x0, y0), (x1, y1), (255, 0, 0), 3)
+        cv2.line(frame_copy, (x0, y1), (x1, y0), (255, 0, 0), 3)
 
-    for (i, j), celda in celdas:
-        if detectar_circulo(celda):
-            cv2.putText(frame_copy, f"O en ({i},{j})", (j * w // 3 + 10, i * h // 3 + 40),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
     cv2.imshow("Detección de círculos", frame_copy)
 
