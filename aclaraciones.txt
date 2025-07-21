@@ -1,3 +1,15 @@
+Aclaraciones:
+Es lento en general por que si se va muy rapido sin tener las piezas muy ajustadas
+las mismas salen volando.
+Hay sleeps por todos lados por que si se llama una funcion del robot como la de moverse o la de grip
+el programa no necesariamente va a esperae a que la funcion haya terminado
+entonces puede arrancar a correr la siguiente funcion y se tranca todo. Entonces la espera se hace manual.
+
+
+
+
+
+
 minRadius y maxRadius: ajustá según el tamaño de tus fichas "O".
 param2: es el umbral para detectar los círculos. Bajalo para detectar más fácilmente, subilo para evitar falsos positivos.
 Si las fichas tienen poco contraste, mejorá la iluminación o cambiá el color de fondo/tablero.
@@ -8,3 +20,11 @@ Acá naturalmente pondría una X en la esquina de arriba a la izquierda que ser�
 - - -
 - x -
 - - 0
+Queda otro caso sin completar en el tema del ta te tiene(creo)
+- - -
+x 0 -
+- - -
+Acá agarra y hace:
+- - -
+x 0 0
+- - -

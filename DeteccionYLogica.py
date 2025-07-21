@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from robot_control import *
 from config import * 
+from dashboard_control import *
 ROBOT_IP = "192.168.0.2"  # Reemplaza con la IP real del UR5
 ROBOT_PORT = 30002
 import time
@@ -9,22 +10,29 @@ import time
 #Definicion de movimientos:
 def primer_movimiento():
     move_to_position(pickup1)
-    print("p1 terminado")
+    time.sleep(3)
+    close_gripper()
     time.sleep(3)
     move_to_position(home_position)
 
 def segundo_movimiento():
     move_to_position(pickup2)
     time.sleep(3)
+    close_gripper()
+    time.sleep(3)
     move_to_position(home_position)
 
 def tercer_movimiento():
     move_to_position(pickup3)
     time.sleep(3)
+    close_gripper()
+    time.sleep(3)
     move_to_position(home_position)
 
 def cuarto_movimiento():
     move_to_position(pickup4)
+    time.sleep(3)
+    close_gripper()
     time.sleep(3)
     move_to_position(home_position)
 
@@ -33,8 +41,10 @@ def mover_a_celda(i, j):
     if pose:
         move_to_position(pose)
         time.sleep(3)
+        open_gripper()
+        time.sleep(2)
         move_to_position(home_position)
-        time.sleep(3)
+        time.sleep(2)
     else:
         print(f"No hay posición definida para la celda ({i},{j})")
 
@@ -109,7 +119,8 @@ def detectar_circulo(celda):
     blur = cv2.medianBlur(gray, 5)
 
     circles = cv2.HoughCircles(blur, cv2.HOUGH_GRADIENT, dp=1.2, minDist=20,
-                               param1=50, param2=30, minRadius=10, maxRadius=50)
+                               param1=50, param2=50, minRadius=40, maxRadius=60)
+
 
     if circles is not None:
         circles = np.uint16(np.around(circles))
@@ -128,6 +139,8 @@ cruces_colocadas = 0
 
 if __name__ == '__main__':
     move_to_position(home_position)
+    time.sleep(3)
+    open_gripper()
     while True:
         ret, frame = cap.read()
         if not ret:
@@ -175,30 +188,34 @@ if __name__ == '__main__':
                 i, j = jugada
                 if tablero_robot[i][j] == "":
                     tablero_robot[i][j] = "X"
+                    if cruces_colocadas==3:
+                        cuarto_movimiento()
+                        time.sleep(2)
+                        mover_a_celda(i, j)
+                        time.sleep(2)
+                        cruces_colocadas += 1
+                    if cruces_colocadas==2:
+                        tercer_movimiento()
+                        time.sleep(2)
+                        mover_a_celda(i, j)
+                        time.sleep(2)
+                        cruces_colocadas += 1
+                    if cruces_colocadas==1:
+                        segundo_movimiento()
+                        time.sleep(2)
+                        mover_a_celda(i, j)
+                        time.sleep(2)
+                        print("primer mov terminado")
+                        cruces_colocadas += 1
                     if cruces_colocadas==0:
                         primer_movimiento()
                         time.sleep(2)
                         mover_a_celda(i, j)
                         time.sleep(2)
                         print("primer mov terminado")
-                    if cruces_colocadas==1:
-                        segundo_movimiento()
-                        time.sleep(2)
-                        mover_a_celda(i, j)
-                        time.sleep(2)
-                        print("segundo mov terminado")
-                    if cruces_colocadas==2:
-                        tercer_movimiento()
-                        time.sleep(2)
-                        mover_a_celda(i, j)
-                        time.sleep(2)
-                    if cruces_colocadas==3:
-                        cuarto_movimiento()
-                        time.sleep(2)
-                        mover_a_celda(i, j)
-                        time.sleep(2)
+                        cruces_colocadas += 1
+                    
 
-                    cruces_colocadas += 1
 
                 
                 cv2.putText(frame_copy, f"Robot jugaria en: ({i},{j})", (10, h - 10),

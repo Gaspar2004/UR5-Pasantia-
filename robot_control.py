@@ -11,6 +11,7 @@ def send_urscript(script):
 
 def move_to_position(position):
     x, y, z, rx, ry, rz = position
-    script = f'movel(p[{x},{y},{z},{rx},{ry},{rz}], a=1.2, v=0.25)\n'
+    script = f'movel(p[{x},{y},{z},{rx},{ry},{rz}], a=1.2, v=0.15)\n'
     send_urscript(script)
+
 
