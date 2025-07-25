@@ -8,10 +8,12 @@ current_pos = []
 def estimate_movel_time(target_pos, vel, acc):
     global current_pos
     if current_pos==[]:
+    global current_pos
+    if not current_pos:
         current_pos = target_pos
-    dist_x = target_position[0] - start_position[0]
-    dist_y = target_position[1] - start_position[1]
-    dist_z = target_position[2] - start_position[2]
+    dist_x = target_pos[0] - current_pos[0]
+    dist_y = target_pos[1] - current_pos[1]
+    dist_z = target_pos[2] - current_pos[2]
     distance = math.sqrt(dist_x**2 + dist_y**2 + dist_z**2)
 
     # Si la distancia es cero, el tiempo es cero.
@@ -49,6 +51,7 @@ def send_urscript(script):
     s.close()
 
 def _move(position, typ, velocity=0.15, acceleration=1.2):
+    global current_pos
     global current_pos
     x, y, z, rx, ry, rz = position
     current_pos = position
