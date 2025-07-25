@@ -24,7 +24,8 @@ def estimate_movel_time(target_pos, velocity, acceleration):
     # d_accel = 0.5 * a * t_accel^2 = 0.5 * a * (v/a)^2 = 0.5 * v^2 / a
     time_to_reach_max_vel = velocity / acceleration
     distance_during_accel = 0.5 * acceleration * time_to_reach_max_vel**2
-
+    
+    time_at_max_speed = (distance - (2 * distance_during_accel)) / velocity
     print(2 * math.sqrt(distance / acceleration), (2 * time_to_reach_max_vel) + time_at_max_speed)
     # El robot necesita acelerar y luego desacelerar, por lo tanto, 2 * distance_during_accel
     if distance <= 2 * distance_during_accel:
@@ -42,8 +43,8 @@ def estimate_movel_time(target_pos, velocity, acceleration):
 
     # Añadir un pequeño colchón/margen de seguridad (ej. 10-20%)
     # Esto compensa imprecisiones, sobrecargas, cambios de orientación, etc.
-    safety_margin = 1.2 # Añadir un 20%
-    return estimated_time * safety_margin
+    safety_margin = 1.2 #1.2 # Añadir un 20%
+    return estimated_time * safety_margin + 1
 
 def send_urscript(script):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
