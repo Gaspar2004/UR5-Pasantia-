@@ -18,15 +18,12 @@ def move_j(position):
     return _move(position, 'j', 0.4)
 
 def move_l(position):
-    return _move(position, 'l')
+    velocity = 0.15
+    x, y, z, rx, ry, rz = position
+    distance = (x**2 + y**2 + z**2) ** 0.5
+    estimated_time = distance / velocity
+    _move(position, 'l', velocity)
+    time.sleep(estimated_time * 1.1)
 
 def move_p(position):
-    return _move(position, 'p')
-
-def move_to_position(position):
-    return move_l(position)
-    """x, y, z, rx, ry, rz = position
-    script = f'movel(p[{x},{y},{z},{rx},{ry},{rz}], a=1.2, v=0.15)\n'
-    send_urscript(script)"""
-
-
+    _move(position, 'p')
