@@ -67,6 +67,7 @@ def move_l(position):
     _move(position, 'l', velocity, acceleration)
     print("Move L, tiempo estimado", estimated_time)
     time.sleep(estimated_time)
+    print("di hola")
 
 def move_p(position):
     _move(position, 'p')
