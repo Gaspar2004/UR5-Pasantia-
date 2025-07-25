@@ -53,10 +53,9 @@ def send_urscript(script):
     s.close()
 
 def _move(position, typ, velocity=0.15, acceleration=1.2):
-    global current_pos
-    global current_pos
+    ##global current_pos
     x, y, z, rx, ry, rz = position
-    current_pos = position
+    ##current_pos = position
     script = f'move{typ}(p[{x},{y},{z},{rx},{ry},{rz}], a={acceleration}, v={velocity})\n'
     send_urscript(script)
 
