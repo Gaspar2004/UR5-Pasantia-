@@ -9,9 +9,24 @@ def send_urscript(script):
     s.send(script.encode('utf-8'))
     s.close()
 
-def move_to_position(position):
+def _move(position, typ):
     x, y, z, rx, ry, rz = position
-    script = f'movel(p[{x},{y},{z},{rx},{ry},{rz}], a=1.2, v=0.15)\n'
+    script = f'move{typ}(p[{x},{y},{z},{rx},{ry},{rz}], a=1.2, v=0.15)\n'
     send_urscript(script)
+
+def move_j(position):
+    return _move(position, 'j')
+
+def move_l(position):
+    return _move(position, 'l')
+
+def move_p(position):
+    return _move(position, 'p')
+
+def move_to_position(position):
+    return move_l(position)
+    """x, y, z, rx, ry, rz = position
+    script = f'movel(p[{x},{y},{z},{rx},{ry},{rz}], a=1.2, v=0.15)\n'
+    send_urscript(script)"""
 
 
