@@ -11,19 +11,19 @@ def sum(A, B):
     return [a + b for a, b in zip(A, B)]
 
 def pickup(i):
-    z_dim = 10.6/1000 #Altura cruz
-    tot = 5 #Total de cruces
+    z_dim = 10.6/1000
+    tot = 5
     approach_height = 10
     approach = sum(pickup_base, [0, 0, z_dim * approach_height, 0, 0, 0])
     move_j(approach)
     time.sleep(5)
     pos = sum(pickup_base, [0, 0, z_dim * (tot - i), 0, 0, 0])
     move_l(pos)
-    time.sleep(5)
+    ##time.sleep(5)
     close_gripper()
     time.sleep(3)
     move_l(approach)
-    time.sleep(5)
+    ##time.sleep(5)
 
 #Definicion de movimientos:
 def primer_movimiento():
@@ -65,11 +65,11 @@ def cuarto_movimiento():
 def mover_a_celda(i, j):
     pose = celda_a_posicion.get((i, j))
     if pose:
-        move_j(pose)
+        move_l(pose)
         time.sleep(3)
         open_gripper()
         time.sleep(2)
-        move_j(home_position)
+        move_l(home_position)
         time.sleep(2)
     else:
         print(f"No hay posición definida para la celda ({i},{j})")
