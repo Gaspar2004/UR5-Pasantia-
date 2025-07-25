@@ -25,6 +25,7 @@ def estimate_movel_time(target_pos, velocity, acceleration):
     time_to_reach_max_vel = velocity / acceleration
     distance_during_accel = 0.5 * acceleration * time_to_reach_max_vel**2
 
+    print(2 * math.sqrt(distance / acceleration), (2 * time_to_reach_max_vel) + time_at_max_speed)
     # El robot necesita acelerar y luego desacelerar, por lo tanto, 2 * distance_during_accel
     if distance <= 2 * distance_during_accel:
         # El movimiento es tan corto que el robot nunca alcanza la velocidad máxima.
@@ -33,6 +34,7 @@ def estimate_movel_time(target_pos, velocity, acceleration):
         # t/2 = sqrt(distancia / a)
         # t = 2 * sqrt(distancia / a)
         estimated_time = 2 * math.sqrt(distance / acceleration)
+        
     else:
         # El robot acelera, mantiene la velocidad máxima, y luego desacelera.
         time_at_max_speed = (distance - (2 * distance_during_accel)) / velocity
@@ -66,6 +68,7 @@ def move_l(position):
     estimated_time = estimate_movel_time(position, velocity, acceleration)
     _move(position, 'l', velocity, acceleration)
     print("Move L, tiempo estimado", estimated_time)
+    type(estimated_time)
     time.sleep(estimated_time)
     print("di hola")
 
