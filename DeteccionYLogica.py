@@ -10,7 +10,7 @@ import time
 #Definicion de movimientos:
 def primer_movimiento():
     move_to_position(pickup1)
-    time.sleep(3)
+    time.sleep(4)
     close_gripper()
     time.sleep(3)
     move_to_position(home_position)
