@@ -28,48 +28,53 @@ def pickup(i):
 #Definicion de movimientos:
 def primer_movimiento():
     pickup(1)
-    move_to_position(home_position)
-    """move_to_position(pickup1)
+    move_j(home_position)
+    """move_j(pickup1)
     time.sleep(4)
     close_gripper()
     time.sleep(3)
-    move_to_position(home_position)"""
+    move_j(home_position)"""
 
 def segundo_movimiento():
     pickup(2)
+<<<<<<< HEAD
     move_to_position(home_position)
     """ move_to_position(pickup2)
+=======
+    move_j(home_position)
+   """ move_j(pickup2)
+>>>>>>> 8d948de612003916cb74f54df05caee3bc1ada98
     time.sleep(4)
     close_gripper()
     time.sleep(3)
-    move_to_position(home_position)"""
+    move_j(home_position)"""
 
 def tercer_movimiento():
     pickup(3)
-    move_to_position(home_position)
-    """move_to_position(pickup3)
+    move_j(home_position)
+    """move_j(pickup3)
     time.sleep(4)
     close_gripper()
     time.sleep(3)
-    move_to_position(home_position)"""
+    move_j(home_position)"""
 
 def cuarto_movimiento():
     pickup(4)
-    move_to_position(home_position)
-    """move_to_position(pickup4)
+    move_j(home_position)
+    """move_j(pickup4)
     time.sleep(4)
     close_gripper()
     time.sleep(3)
-    move_to_position(home_position)"""
+    move_j(home_position)"""
 
 def mover_a_celda(i, j):
     pose = celda_a_posicion.get((i, j))
     if pose:
-        move_to_position(pose)
+        move_j(pose)
         time.sleep(3)
         open_gripper()
         time.sleep(2)
-        move_to_position(home_position)
+        move_j(home_position)
         time.sleep(2)
     else:
         print(f"No hay posición definida para la celda ({i},{j})")
@@ -165,7 +170,7 @@ cruces_colocadas = 0
 
 if __name__ == '__main__':
 
-    move_to_position(home_position)
+    move_j(home_position)
     time.sleep(6)
     open_gripper()
     while True:
