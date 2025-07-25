@@ -3,10 +3,11 @@ from config import ROBOT_IP, ROBOT_PORT
 ROBOT_IP = "192.168.0.2"  # Reemplaza con la IP real del UR5
 ROBOT_PORT = 30002  
 
-current_pos = None
+current_pos = []
 
 def estimate_movel_time(target_pos, vel, acc):
-    if not current_pos:
+    global current_pos
+    if current_pos==[]:
         current_pos = target_pos
     dist_x = target_position[0] - start_position[0]
     dist_y = target_position[1] - start_position[1]
@@ -48,6 +49,7 @@ def send_urscript(script):
     s.close()
 
 def _move(position, typ, velocity=0.15, acceleration=1.2):
+    global current_pos
     x, y, z, rx, ry, rz = position
     current_pos = position
     script = f'move{typ}(p[{x},{y},{z},{rx},{ry},{rz}], a={acceleration}, v={velocity})\n'
