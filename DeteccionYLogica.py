@@ -11,7 +11,7 @@ def sum(A, B):
     return [a + b for a, b in zip(A, B)]
 
 def pickup(i):
-    z_dim = 9/1000
+    z_dim = 8.2/1000
     tot = 5
     approach_height = 10
     approach = sum(pickup_base, [0, 0, z_dim * approach_height, 0, 0, 0])
@@ -28,10 +28,7 @@ def pickup(i):
 #Definicion de movimientos:
 def primer_movimiento():
     pickup(1)
-    pickup(2)
-    pickup(3)
-    pickup(4)
-    pickup(5)
+   
 
     #pickup(4)
     move_j(home_position)
