@@ -2,14 +2,13 @@ import socket
 from config import ROBOT_IP, ROBOT_PORT
 ROBOT_IP = "192.168.0.2"  # Reemplaza con la IP real del UR5
 ROBOT_PORT = 30002  
-
+import math
 current_pos = []
+import time
 
-def estimate_movel_time(target_pos, vel, acc):
+def estimate_movel_time(target_pos, velocity, acceleration):
     global current_pos
     if current_pos==[]:
-    global current_pos
-    if not current_pos:
         current_pos = target_pos
     dist_x = target_pos[0] - current_pos[0]
     dist_y = target_pos[1] - current_pos[1]
