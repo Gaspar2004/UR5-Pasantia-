@@ -11,8 +11,8 @@ def sum(A, B):
     return [a + b for a, b in zip(A, B)]
 
 def pickup(i):
-    z_dim = 10.6/1000
-    tot = 5
+    z_dim = 10.6/1000 #Altura cruz
+    tot = 5 #Total de cruces
     approach_height = 10
     approach = sum(pickup_base, [0, 0, z_dim * approach_height, 0, 0, 0])
     move_j(approach)
@@ -38,7 +38,7 @@ def primer_movimiento():
 def segundo_movimiento():
     pickup(2)
     move_to_position(home_position)
-   """ move_to_position(pickup2)
+    """ move_to_position(pickup2)
     time.sleep(4)
     close_gripper()
     time.sleep(3)
