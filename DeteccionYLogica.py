@@ -27,32 +27,40 @@ def pickup(i):
 
 #Definicion de movimientos:
 def primer_movimiento():
-    move_to_position(pickup1)
+    pickup(1)
+    move_to_position(home_position)
+    """move_to_position(pickup1)
     time.sleep(4)
     close_gripper()
     time.sleep(3)
-    move_to_position(home_position)
+    move_to_position(home_position)"""
 
 def segundo_movimiento():
-    move_to_position(pickup2)
+    pickup(2)
+    move_to_position(home_position)
+   """ move_to_position(pickup2)
     time.sleep(4)
     close_gripper()
     time.sleep(3)
-    move_to_position(home_position)
+    move_to_position(home_position)"""
 
 def tercer_movimiento():
-    move_to_position(pickup3)
+    pickup(3)
+    move_to_position(home_position)
+    """move_to_position(pickup3)
     time.sleep(4)
     close_gripper()
     time.sleep(3)
-    move_to_position(home_position)
+    move_to_position(home_position)"""
 
 def cuarto_movimiento():
-    move_to_position(pickup4)
+    pickup(4)
+    move_to_position(home_position)
+    """move_to_position(pickup4)
     time.sleep(4)
     close_gripper()
     time.sleep(3)
-    move_to_position(home_position)
+    move_to_position(home_position)"""
 
 def mover_a_celda(i, j):
     pose = celda_a_posicion.get((i, j))
