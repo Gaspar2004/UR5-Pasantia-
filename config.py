@@ -1,7 +1,8 @@
 ROBOT_IP = "192.168.0.2"  # Reemplaza con la IP real del UR5
 ROBOT_PORT = 30002         # Puerto para comandos URScript
 
-home_position=[-0.39029, 0.11233, 0.34078, 1.067, 2.958, -0.002]
+home_position=[-0.39029, 0.11233, 0.41646, 1.067, 2.958, -0.002]
+Home_position_new=[-0.38262, 0.10022, 0.40668, 1.161, 2.919, 0.000]
 intermedioPickupHome=[-0.41191, 0.29885, 0.12944, 1.090, 3.020, 0.024]
 pickup1=[-0.41191, 0.29885, 0.05092, 1.090, 3.020, 0.024]
 pickup2=[-0.41191, 0.29885, 0.04280, 1.090, 3.020, 0.024]
