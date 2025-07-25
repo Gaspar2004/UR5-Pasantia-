@@ -7,6 +7,24 @@ ROBOT_IP = "192.168.0.2"  # Reemplaza con la IP real del UR5
 ROBOT_PORT = 30002
 import time
 
+def sum(A, B):
+    return [a + b for a, b in zip(A, B)]
+
+def pickup(i):
+    z_dim = 10.6/1000
+    tot = 5
+    approach_height = 10
+    approach = sum(pickup_base, [0, 0, z_dim * approach_height, 0, 0, 0])
+    move_j(approach)
+    time.sleep(5)
+    pos = sum(pickup_base, [0, 0, z_dim * (tot - i), 0, 0, 0])
+    move_l(pos)
+    time.sleep(5)
+    close_gripper()
+    time.sleep(3)
+    move_l(approach)
+    time.sleep(5)
+
 #Definicion de movimientos:
 def primer_movimiento():
     move_to_position(pickup1)
