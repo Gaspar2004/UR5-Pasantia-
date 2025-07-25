@@ -17,21 +17,21 @@ def primer_movimiento():
 
 def segundo_movimiento():
     move_to_position(pickup2)
-    time.sleep(3)
+    time.sleep(4)
     close_gripper()
     time.sleep(3)
     move_to_position(home_position)
 
 def tercer_movimiento():
     move_to_position(pickup3)
-    time.sleep(3)
+    time.sleep(4)
     close_gripper()
     time.sleep(3)
     move_to_position(home_position)
 
 def cuarto_movimiento():
     move_to_position(pickup4)
-    time.sleep(3)
+    time.sleep(4)
     close_gripper()
     time.sleep(3)
     move_to_position(home_position)
@@ -138,8 +138,9 @@ tablero_robot = [["" for _ in range(3)] for _ in range(3)]
 cruces_colocadas = 0
 
 if __name__ == '__main__':
+
     move_to_position(home_position)
-    time.sleep(3)
+    time.sleep(6)
     open_gripper()
     while True:
         ret, frame = cap.read()
