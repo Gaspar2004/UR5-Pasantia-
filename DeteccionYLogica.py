@@ -27,7 +27,13 @@ def pickup(i):
 
 #Definicion de movimientos:
 def primer_movimiento():
+    pickup(1)
+    pickup(2)
+    pickup(3)
     pickup(4)
+    pickup(5)
+
+    #pickup(4)
     move_j(home_position)
     """move_j(pickup1)
     time.sleep(4)
