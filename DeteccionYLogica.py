@@ -38,7 +38,7 @@ def primer_movimiento():
 def segundo_movimiento():
     pickup(2)
     move_j(home_position)
-   """ move_j(pickup2)
+    """ move_j(pickup2)
     time.sleep(4)
     close_gripper()
     time.sleep(3)
