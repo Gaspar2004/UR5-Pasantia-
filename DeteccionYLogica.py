@@ -19,11 +19,11 @@ def pickup(i):
     time.sleep(5)
     pos = sum(pickup_base, [0, 0, z_dim * (tot - i), 0, 0, 0])
     move_l(pos)
-    ##time.sleep(5)
+    time.sleep(5)
     close_gripper()
     time.sleep(3)
     move_l(approach)
-    ##time.sleep(5)
+    time.sleep(5)
 
 #Definicion de movimientos:
 def primer_movimiento():
