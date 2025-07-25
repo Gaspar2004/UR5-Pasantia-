@@ -2,7 +2,7 @@ import socket
 from config import ROBOT_IP, ROBOT_PORT
 ROBOT_IP = "192.168.0.2"  # Reemplaza con la IP real del UR5
 ROBOT_PORT = 30002  
-
+import time
 def send_urscript(script):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((ROBOT_IP, ROBOT_PORT))
