@@ -17,7 +17,8 @@ def pickup(i):
     approach = sum(pickup_base, [0, 0, z_dim * approach_height, 0, 0, 0])
     move_j(approach)
     time.sleep(5)
-    pos = sum(pickup_base, [0, 0, z_dim * (tot - i), 0, 0, 0])
+    ##pos = sum(pickup_base, [0, 0, z_dim * (tot - i), 0, 0, 0])
+    pos = pickup[str(i-1)]
     move_l(pos)
     time.sleep(5)
     close_gripper()
