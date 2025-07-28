@@ -11,28 +11,26 @@ def sum(A, B):
     return [a + b for a, b in zip(A, B)]
 
 def pickup(i):
+    pickups=[pickup1,pickup2,pickup3,pickup4,pickup5]
     z_dim = 8.2/1000
     tot = 5
-    approach_height = 10
+    approach_height = 15
     approach = sum(pickup_base, [0, 0, z_dim * approach_height, 0, 0, 0])
-    move_j(approach)
-    time.sleep(5)
+    #move_j(approach)
+    #time.sleep(3.5)
     ##pos = sum(pickup_base, [0, 0, z_dim * (tot - i), 0, 0, 0])
-    pos = pickup[str(i-1)]
+    
+    pos = pickups[i-1]
     move_l(pos)
-    time.sleep(5)
+    time.sleep(3+i)
     close_gripper()
-    time.sleep(3)
+    time.sleep(2)
     move_l(approach)
-    time.sleep(5)
+    time.sleep(1)
 
 #Definicion de movimientos:
 def primer_movimiento():
     pickup(1)
-   
-
-    #pickup(4)
-    move_j(home_position)
     """move_j(pickup1)
     time.sleep(4)
     close_gripper()
@@ -41,7 +39,6 @@ def primer_movimiento():
 
 def segundo_movimiento():
     pickup(2)
-    move_j(home_position)
     """ move_j(pickup2)
     time.sleep(4)
     close_gripper()
@@ -50,7 +47,6 @@ def segundo_movimiento():
 
 def tercer_movimiento():
     pickup(3)
-    move_j(home_position)
     """move_j(pickup3)
     time.sleep(4)
     close_gripper()
@@ -59,7 +55,6 @@ def tercer_movimiento():
 
 def cuarto_movimiento():
     pickup(4)
-    move_j(home_position)
     """move_j(pickup4)
     time.sleep(4)
     close_gripper()
@@ -69,8 +64,10 @@ def cuarto_movimiento():
 def mover_a_celda(i, j):
     pose = celda_a_posicion.get((i, j))
     if pose:
+        #move_j(sum(pose, [0, 0, 0.05, 0, 0, 0]))
+        #time.sleep(3)
         move_l(pose)
-        time.sleep(3)
+        time.sleep(2)
         open_gripper()
         time.sleep(2)
         move_l(home_position)
@@ -170,8 +167,9 @@ cruces_colocadas = 0
 if __name__ == '__main__':
 
     move_j(home_position)
-    time.sleep(6)
+    time.sleep(7)
     open_gripper()
+    time.sleep(2)
     while True:
         ret, frame = cap.read()
         if not ret:
@@ -240,7 +238,7 @@ if __name__ == '__main__':
                         cruces_colocadas += 1
                     if cruces_colocadas==0:
                         primer_movimiento()
-                        time.sleep(2)
+                        time.sleep(1)
                         mover_a_celda(i, j)
                         time.sleep(2)
                         print("primer mov terminado")

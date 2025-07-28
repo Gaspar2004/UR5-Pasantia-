@@ -63,7 +63,7 @@ def move_j(position):
     return _move(position, 'j', 0.6)
 
 def move_l(position):
-    velocity = 0.3
+    velocity = 0.30
     acceleration = 1.2
     _move(position, 'l', velocity, acceleration)
     
