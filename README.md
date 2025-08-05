@@ -1,12 +1,9 @@
 # UR5-Pasantia-
 UR5 Pasantia 
 
-
-Claro, te explico el **flujo general del programa**, estructurándolo en 5 partes principales para que tengas un panorama claro de cómo se relacionan visión, lógica y control del robot:
-
 ---
 
-## 🧠 **Flujo general del programa - "Tateti Robot UR5"**
+## **Flujo general del programa - "Tateti Robot UR5"**
 
 ---
 
