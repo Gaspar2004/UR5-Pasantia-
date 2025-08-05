@@ -101,5 +101,3 @@ Este bloque se ejecuta constantemente dentro del `while True`:
 6. **Repite el ciclo hasta que se cierre el programa**
 
 ---
-
-Si querés, puedo ayudarte a modular aún más el código o documentar línea por línea con comentarios. ¿Querés armar un README para el proyecto?
